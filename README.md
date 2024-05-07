@@ -1,4 +1,5 @@
-# html-docx-js-typescript
+# html-docx-ts-improve
+#### 特此声明：此库是基于 html-docx-js-typescript 进一步改进
 
 [![NPM version][npm-image]][npm-url]
 
@@ -9,7 +10,7 @@ Convert HTML documents to docx format.
 ## Installing
 
 ```
-npm install html-docx-js-typescript --save-dev
+npm install html-docx-ts-improve --save-dev
 ```
 
 ## Usage
@@ -19,7 +20,7 @@ Support node.js and browser enviroment, including vue/react/angular.
 #### Vue.js usage demo:
 
 ```js
-import { asBlob } from 'html-docx-js-typescript'
+import { asBlob } from 'html-docx-ts-improve'
 // if you want to save the docx file, you need import 'file-saver'
 import { saveAs } from 'file-saver'
 
@@ -49,6 +50,18 @@ And you can set options including margins and orientation.
 
 ```js
 const data = await asBlob(htmlString, { orientation: 'landscape', margins: { top: 100 } })
+```
+
+##### Improvement 1: Paper size can be adjusted
+
+```js
+const data = await asBlob(htmlString, { orientation: 'landscape', margins: { top: 100 }, size: 'A4' })
+```
+
+or
+
+```js
+const data = await asBlob(htmlString, { orientation: 'landscape', margins: { top: 100 }, width: 12240, height: 20160 })
 ```
 
 #### literal type widen issue

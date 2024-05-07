@@ -9,6 +9,9 @@ export type DocumentOptions = typeof defaultDocumentOptions
 const defaultDocumentOptions = {
   orientation: 'portrait' as Orient,
   margins: {} as Partial<Margins>,
+  height: null,
+  width: null,
+  size: '',
 }
 
 function mergeOptions<T>(options: T, patch: Partial<T>) {
@@ -33,16 +36,53 @@ function getBinaryData(str: string) {
 function renderDocumentFile(documentOptions: DocumentOptions) {
   const { orientation, margins } = documentOptions
   const marginsOptions = mergeOptions(defaultMargins, margins)
-  let width = 0
-  let height = 0
-  if (orientation === 'landscape') {
-    height = 12240
-    width = 15840
-  } else {
-    width = 12240
-    height = 15840
+
+  // let width = 0
+  // let height = 0
+  // if (orientation === 'landscape') {
+  //   height = 12240
+  //   width = 15840
+  // } else {
+  //   width = 12240
+  //   height = 15840
+  // }
+  let pageSizes = ['legal','letter','A4'];
+  let pageWidth  = 12240;
+  let pageHeight = 15840;
+  if(documentOptions.height){
+    pageHeight = documentOptions.height;
   }
-  return documentTemplate(width, height, orientation, marginsOptions)
+  if(documentOptions.width){
+    pageWidth = documentOptions.width;
+  }
+  if(!documentOptions.height && !documentOptions.height){
+    if(documentOptions.size){
+      var a = pageSizes.indexOf(documentOptions.size);
+      console.log(a);
+      if(a === -1){
+        throw new Error("Size should be "+pageSizes.toString());
+      }
+    }else{
+      documentOptions.size = 'letter';
+    }
+
+    switch(documentOptions.size){
+      case 'legal':
+        pageHeight = 20160;
+        pageWidth  = 12240;
+        break;
+      case 'A4':
+        pageHeight = 16837.795;
+        pageWidth  = 11905.511;
+        break;
+      default:
+        pageHeight = 15840;
+        pageWidth  = 12240;
+    }
+  }
+
+  // return documentTemplate(width, height, orientation, marginsOptions)
+  return documentTemplate(pageWidth, pageHeight, orientation, marginsOptions)
 }
 
 export function addFiles(zip: JSZip, htmlSource: string, options: Partial<DocumentOptions>) {
