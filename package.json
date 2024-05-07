@@ -1,6 +1,6 @@
 {
-  "name": "html-docx-js-typescript",
-  "version": "0.1.5",
+  "name": "html-docx-ts-improve",
+  "version": "1.0.0",
   "description": "Convert HTML documents to docx format.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -43,9 +43,9 @@
     "release": "npm version patch && npm publish --registry http://registry.npmjs.org"
   },
   "author": {
-    "name": "caiyexiang",
-    "email": "caiyexiang1@live.com",
-    "url": "https://caiyexiang.com/"
+    "name": "nk-cn",
+    "email": "",
+    "url": ""
   },
   "keywords": [
     "html-docx-js",
@@ -55,12 +55,12 @@
     "html-to-docx"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/caiyexiang/html-docx-js-typescript#readme",
+  "homepage": "https://github.com/Nanke-Van/html-docx-ts-improve#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/caiyexiang/html-docx-js-typescript.git"
+    "url": "git+https://github.com/Nanke-Van/html-docx-ts-improve.git"
   },
   "bugs": {
-    "url": "https://github.com/caiyexiang/html-docx-js-typescript/issues"
+    "url": "https://github.com/Nanke-Van/html-docx-ts-improve/issues"
   }
 }

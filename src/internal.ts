@@ -9,8 +9,8 @@ export type DocumentOptions = typeof defaultDocumentOptions
 const defaultDocumentOptions = {
   orientation: 'portrait' as Orient,
   margins: {} as Partial<Margins>,
-  height: null,
-  width: null,
+  height: 15840,
+  width: 12240,
   size: '',
 }
 
@@ -46,7 +46,7 @@ function renderDocumentFile(documentOptions: DocumentOptions) {
   //   width = 12240
   //   height = 15840
   // }
-  let pageSizes = ['legal','letter','A4'];
+  const pageSizes = ['legal','letter','A4'];
   let pageWidth  = 12240;
   let pageHeight = 15840;
   if(documentOptions.height){
@@ -57,7 +57,7 @@ function renderDocumentFile(documentOptions: DocumentOptions) {
   }
   if(!documentOptions.height && !documentOptions.height){
     if(documentOptions.size){
-      var a = pageSizes.indexOf(documentOptions.size);
+      const a = pageSizes.indexOf(documentOptions.size);
       console.log(a);
       if(a === -1){
         throw new Error("Size should be "+pageSizes.toString());
@@ -90,7 +90,9 @@ export function addFiles(zip: JSZip, htmlSource: string, options: Partial<Docume
   zip.file('[Content_Types].xml', getBinaryData(contentTypesXml), {
     createFolders: false,
   })
+  // @ts-ignore
   zip.folder('_rels').file('.rels', getBinaryData(relsXml), { createFolders: false })
+  // @ts-ignore
   return zip
     .folder('word')
     .file('document.xml', renderDocumentFile(documentOptions), {
