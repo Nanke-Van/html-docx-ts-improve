@@ -1,7 +1,5 @@
 # html-docx-ts-improve
-#### 特此声明：此库是基于 html-docx-js-typescript 进一步改进
-
-[![NPM version][npm-image]][npm-url]
+#### 特此声明：此库是基于 [html-docx-js-typescript](https://npmjs.com/package/html-docx-js-typescript) [![NPM version][npm-image]][npm-url] 进一步改进
 
 > Rewrite [html-docx-js](https://www.npmjs.com/package/html-docx-js) with Typescript.
 

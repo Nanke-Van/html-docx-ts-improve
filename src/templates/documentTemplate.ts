@@ -432,6 +432,7 @@ export const documentTemplate = (width: number, height: number, orient: string, 
         </w:compat>
     </w:docPr>
     <w:body>
+        <w:altChunk r:id="htmlChunk" />
         <wx:sect>
             <w:sectPr>
                 <w:pgSz w:w="${width}" w:h="${height}" w:orient="${orient}"/>
