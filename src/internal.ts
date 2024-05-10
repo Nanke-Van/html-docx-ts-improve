@@ -72,8 +72,8 @@ function renderDocumentFile(documentOptions: DocumentOptions) {
         pageWidth  = 12240;
         break;
       case 'A4':
-        pageHeight = 16837.795;
-        pageWidth  = 11905.511;
+        pageHeight = 16838;
+        pageWidth  = 11906;
         break;
       default:
         pageHeight = 15840;
