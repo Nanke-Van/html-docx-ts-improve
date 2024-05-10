@@ -46,38 +46,38 @@ function renderDocumentFile(documentOptions: DocumentOptions) {
   //   width = 12240
   //   height = 15840
   // }
-  const pageSizes = ['legal','letter','A4'];
-  let pageWidth  = 12240;
-  let pageHeight = 15840;
-  if(documentOptions.height){
-    pageHeight = documentOptions.height;
+  const pageSizes = ['legal', 'letter', 'A4']
+  let pageWidth = 12240
+  let pageHeight = 15840
+  if (documentOptions.height) {
+    pageHeight = documentOptions.height
   }
-  if(documentOptions.width){
-    pageWidth = documentOptions.width;
+  if (documentOptions.width) {
+    pageWidth = documentOptions.width
   }
-  if(!documentOptions.height && !documentOptions.height){
-    if(documentOptions.size){
-      const a = pageSizes.indexOf(documentOptions.size);
-      console.log(a);
-      if(a === -1){
-        throw new Error("Size should be "+pageSizes.toString());
+  if (!documentOptions.height && !documentOptions.height) {
+    if (documentOptions.size) {
+      const a = pageSizes.indexOf(documentOptions.size)
+      console.log(a)
+      if (a === -1) {
+        throw new Error('Size should be ' + pageSizes.toString())
       }
-    }else{
-      documentOptions.size = 'letter';
+    } else {
+      documentOptions.size = 'letter'
     }
 
-    switch(documentOptions.size){
+    switch (documentOptions.size) {
       case 'legal':
-        pageHeight = 20160;
-        pageWidth  = 12240;
-        break;
+        pageHeight = 20160
+        pageWidth = 12240
+        break
       case 'A4':
-        pageHeight = 16838;
-        pageWidth  = 11906;
-        break;
+        pageHeight = 16838
+        pageWidth = 11906
+        break
       default:
-        pageHeight = 15840;
-        pageWidth  = 12240;
+        pageHeight = 15840
+        pageWidth = 12240
     }
   }
 
