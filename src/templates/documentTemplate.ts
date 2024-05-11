@@ -1,10 +1,10 @@
 export const defaultMargins = {
-  top: 1440,
-  right: 1440,
-  bottom: 1440,
-  left: 1440,
-  header: 720,
-  footer: 720,
+  top: 720,
+  right: 720,
+  bottom: 720,
+  left: 720,
+  header: 851,
+  footer: 992,
   gutter: 0,
 }
 
@@ -14,15 +14,44 @@ export type Orient = 'landscape' | 'portrait'
 
 export const documentTemplate = (width: number, height: number, orient: string, margins: Margins) => {
   return `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<?mso-application progid="Word.Document"?>
-<w:wordDocument xmlns:w="http://schemas.microsoft.com/office/word/2003/wordml" xmlns:v="urn:schemas-microsoft-com:vml"
-                xmlns:w10="urn:schemas-microsoft-com:office:word"
-                xmlns:sl="http://schemas.microsoft.com/schemaLibrary/2003/core"
-                xmlns:aml="http://schemas.microsoft.com/aml/2001/core"
-                xmlns:wx="http://schemas.microsoft.com/office/word/2003/auxHint"
-                xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"
-                xmlns:wpsCustomData="http://www.wps.cn/officeDocument/2013/wpsCustomData" w:macrosPresent="no" w:embeddedObjPresent="no" w:ocxPresent="no"
-                xml:space="preserve">
+  <?mso-application progid="Word.Document"?>
+<w:document
+
+  xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math"
+  xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"
+  xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing"
+  xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main"
+  xmlns:ns6="http://schemas.openxmlformats.org/schemaLibrary/2006/main"
+  xmlns:c="http://schemas.openxmlformats.org/drawingml/2006/chart"
+  xmlns:ns8="http://schemas.openxmlformats.org/drawingml/2006/chartDrawing"
+  xmlns:dgm="http://schemas.openxmlformats.org/drawingml/2006/diagram"
+  xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture"
+  xmlns:ns11="http://schemas.openxmlformats.org/drawingml/2006/spreadsheetDrawing"
+  xmlns:dsp="http://schemas.microsoft.com/office/drawing/2008/diagram"
+  xmlns:ns13="urn:schemas-microsoft-com:office:excel"
+  xmlns:v="urn:schemas-microsoft-com:vml"
+  xmlns:ns17="urn:schemas-microsoft-com:office:powerpoint"
+  xmlns:odx="http://opendope.org/xpaths"
+  xmlns:odc="http://opendope.org/conditions"
+  xmlns:odq="http://opendope.org/questions"
+  xmlns:odi="http://opendope.org/components"
+  xmlns:odgm="http://opendope.org/SmartArt/DataHierarchy"
+  xmlns:ns24="http://schemas.openxmlformats.org/officeDocument/2006/bibliography"
+  xmlns:ns25="http://schemas.openxmlformats.org/drawingml/2006/compatibility"
+  xmlns:ns26="http://schemas.openxmlformats.org/drawingml/2006/lockedCanvas"
+
+  xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"
+  xmlns:w10="urn:schemas-microsoft-com:office:word"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+
+  xmlns:w="http://schemas.microsoft.com/office/word/2003/wordml" xmlns:v="urn:schemas-microsoft-com:vml"
+  xmlns:w10="urn:schemas-microsoft-com:office:word"
+  xmlns:sl="http://schemas.microsoft.com/schemaLibrary/2003/core"
+  xmlns:aml="http://schemas.microsoft.com/aml/2001/core"
+  xmlns:wx="http://schemas.microsoft.com/office/word/2003/auxHint"
+  xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"
+  xmlns:wpsCustomData="http://www.wps.cn/officeDocument/2013/wpsCustomData" w:macrosPresent="no" w:embeddedObjPresent="no" w:ocxPresent="no"
+  xml:space="preserve">
     <w:fonts>
         <w:defaultFonts w:ascii="Calibri" w:fareast="宋体" w:h-ansi="Calibri" w:cs="Times New Roman"/>
         <w:font w:name="Times New Roman">
@@ -431,25 +460,23 @@ export const documentTemplate = (width: number, height: number, orient: string, 
             <w:useFELayout/>
         </w:compat>
     </w:docPr>
-    <w:body>
-        <w:altChunk r:id="htmlChunk" />
-        <wx:sect>
-            <w:sectPr>
-                <w:pgSz w:w="${width}" w:h="${height}" w:orient="${orient}"/>
-                <w:pgMar
-                   w:top="${margins.top || 720}"
-                   w:right="${margins.right || 720}"
-                   w:bottom="${margins.bottom || 720}"
-                   w:left="${margins.left || 720}"
-                   w:header="${margins.header || 851}"
-                   w:footer="${margins.footer || 992}"
-                   w:gutter="${margins.gutter || 0}"
-               />
-                <w:cols w:space="720"/>
-                <w:docGrid w:type="lines" w:line-pitch="312"/>
-            </w:sectPr>
-        </wx:sect>
-    </w:body>
-</w:wordDocument>
+  <w:body>
+    <w:altChunk r:id="htmlChunk" />
+    <w:sectPr>
+        <w:pgSz w:w="${width}" w:h="${height}" w:orient="${orient}"/>
+        <w:pgMar
+           w:top="${margins.top}"
+           w:right="${margins.right}"
+           w:bottom="${margins.bottom}"
+           w:left="${margins.left}"
+           w:header="${margins.header}"
+           w:footer="${margins.footer}"
+           w:gutter="${margins.gutter}"
+       />
+        <w:cols w:space="720"/>
+        <w:docGrid w:type="lines" w:line-pitch="312"/>
+    </w:sectPr>
+  </w:body>
+</w:document>
 `
 }
